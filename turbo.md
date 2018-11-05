@@ -1061,7 +1061,7 @@ case Opcode::Return:
   return true;
 ```
 
-### Solution Exercise 6: Implement `i32.sub` and `i32.mul`
+### Solution Exercise 6: Implement `i32 sub` and `i32 mul`
 
 ```c++
 case Opcode::I32Sub: {
@@ -1079,7 +1079,7 @@ case Opcode::I32Mul: {
 }
 ```
 
-### Solution Exercise 7: Implement `f32.sub` and `f32.mul`
+### Solution Exercise 7: Implement `f32 sub` and `f32 mul`
 
 ```c++
 
