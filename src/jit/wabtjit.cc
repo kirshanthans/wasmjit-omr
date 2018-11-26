@@ -28,8 +28,14 @@ JITedFunction compile(interp::Thread* thread, interp::DefinedFunc* fn) {
   FunctionBuilder builder(thread, fn, &types);
 
   // YOUR CODE HERE
+  uint8_t * entry;
 
-  return nullptr;
+  if(compileMethodBuilder(&builder, &entry) == 0){
+    return reinterpret_cast<JITedFunction>(entry);
+  } else {
+    return nullptr;
+  }
+
 }
 
 }
