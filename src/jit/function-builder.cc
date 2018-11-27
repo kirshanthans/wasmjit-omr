@@ -251,11 +251,17 @@ bool FunctionBuilder::buildIL() {
                           &istream[fn_->offset]);
   AppendBuilder(workItems_[0].builder);
 
-  int32_t next_index;
+  int32_t next_index = GetNextBytecodeFromWorklist();
 
   // YOUR CODE HERE
+  while (next_index != -1){
+    auto& work_item = workItems_[next_index];
+    if (!Emit(work_item.builder, istream, work_item.pc))
+      return false;
+    next_index = GetNextBytecodeFromWorklist();
+  }
 
-  return false;
+  return true;
 }
 
 /**
