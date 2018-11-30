@@ -1015,17 +1015,25 @@ bool FunctionBuilder::Emit(TR::BytecodeBuilder* b,
       break;
     }
 
-    case Opcode::I32Sub:
+    case Opcode::I32Sub: {
 
       // YOUR CODE HERE
+      auto rhs = PopI32(b);
+      auto lhs = PopI32(b);
+      PushI32(b, b->Sub(lhs, rhs), pc);
+      break;
+    }
 
-      return false;
 
-    case Opcode::I32Mul:
+    case Opcode::I32Mul: {
 
       // YOUR CODE HERE
+      auto rhs = PopI32(b);
+      auto lhs = PopI32(b);
+      PushI32(b, b->Mul(lhs, rhs), pc);
+      break;
+    }
 
-      return false;
 
     case Opcode::I32DivS:
       EmitIntDivide<int32_t>(b, pc);
