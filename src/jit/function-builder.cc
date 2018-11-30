@@ -692,8 +692,9 @@ bool FunctionBuilder::Emit(TR::BytecodeBuilder* b,
     case Opcode::Return:
 
       // YOUR CODE HERE
+      b->Return(b->Const(static_cast<Result_t>(interp::Result::Ok)));
 
-      return false;
+      return true;
 
     case Opcode::Unreachable:
       EmitTrap(b, b->Const(static_cast<Result_t>(interp::Result::TrapUnreachable)), pc);
