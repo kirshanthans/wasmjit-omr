@@ -1363,7 +1363,7 @@ bool FunctionBuilder::Emit(TR::BytecodeBuilder* b,
 
       // YOUR CODE HERE
       EmitBinaryOp<float>(b, pc, [&](TR::IlValue* lhs, TR::IlValue* rhs) {
-        return b->b(lhs, rhs);
+        return b->Mul(lhs, rhs);
       });
       break;
 
