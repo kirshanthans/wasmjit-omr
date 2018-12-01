@@ -785,8 +785,9 @@ bool FunctionBuilder::Emit(TR::BytecodeBuilder* b,
       auto current_pc = b->Const(pc);
 
       // YOUR CODE HERE
-
-      return false;
+      b->Store("result", b->Call("CallHelper", 3, th_addr, offset, current_pc));
+      EmitCheckTrap(b, b->Load("result"), nullptr);
+      break;
     }
 
     case Opcode::CallIndirect: {
@@ -1362,7 +1363,7 @@ bool FunctionBuilder::Emit(TR::BytecodeBuilder* b,
 
       // YOUR CODE HERE
       EmitBinaryOp<float>(b, pc, [&](TR::IlValue* lhs, TR::IlValue* rhs) {
-        return b->Mul(lhs, rhs);
+        return b->b(lhs, rhs);
       });
       break;
 
