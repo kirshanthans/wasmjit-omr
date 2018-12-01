@@ -1353,14 +1353,18 @@ bool FunctionBuilder::Emit(TR::BytecodeBuilder* b,
     case Opcode::F32Sub:
 
       // YOUR CODE HERE
-
-      return false;
+      EmitBinaryOp<float>(b, pc, [&](TR::IlValue* lhs, TR::IlValue* rhs) {
+        return b->Sub(lhs, rhs);
+      });
+      break;
 
     case Opcode::F32Mul:
 
       // YOUR CODE HERE
-
-      return false;
+      EmitBinaryOp<float>(b, pc, [&](TR::IlValue* lhs, TR::IlValue* rhs) {
+        return b->Mul(lhs, rhs);
+      });
+      break;
 
     case Opcode::F32Div:
       EmitBinaryOp<float>(b, pc, [&](TR::IlValue* lhs, TR::IlValue* rhs) {
